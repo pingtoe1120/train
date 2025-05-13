@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>自我介紹 - 陳姿吟</title>
+  <style>
+    body {
+      font-family: "Microsoft JhengHei", sans-serif;
+      background-color: #f5f9ff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .sidebar {
+      width: 200px;
+      background-color: #dceeff;
+      padding: 30px 20px;
+      height: 100vh;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      position: fixed;
+    }
+
+    .sidebar h2 {
+      font-size: 22px;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #2980b9;
+      font-weight: bold;
+    }
+
+    /* 👉 新增：問候語與時間區塊樣式 */
+    .sidebar .greeting {
+      margin-top: 30px;
+      font-size: 16px;
+      color: #2c3e50;
+      text-align: center;
+    }
+
+    .sidebar .time {
+      font-size: 18px;
+      font-weight: bold;
+      color: #34495e;
+      text-align: center;
+      margin-top: 5px;
+    }
+
+    .content {
+      margin-left: 220px;
+      padding: 30px;
+      line-height: 1.8;
+      flex: 1;
+    }
+
+    h1 {
+      color: #2c3e50;
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #2980b9;
+      margin-top: 30px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    .social-links {
+      margin-top: 30px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin-right: 15px;
+      text-decoration: none;
+      color: #2c3e50;
+      background-color: #d0e8ff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+
+    .social-links a:hover {
+      background-color: #a4d4ff;
+    }
+
+    #topBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 99;
+      font-size: 16px;
+      border: none;
+      outline: none;
+      background-color: #2980b9;
+      color: white;
+      cursor: pointer;
+      padding: 12px 18px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
+    }
+
+    #topBtn:hover {
+      background-color: #1f6390;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 側邊選單 -->
+  <div class="sidebar">
+    <h2>選單</h2>
+    <ul>
+      <li><a href="#about">關於我</a></li>
+      <li><a href="#hobbies">興趣</a></li>
+      <li><a href="#personality">個性</a></li>
+      <li><a href="#favorites">喜好</a></li>
+      <li><a href="#social">社群連結</a></li>
+    </ul>
+
+    <!-- 👉 新增：問候語與時間顯示 -->
+    <div class="greeting" id="greetingText">歡迎光臨！</div>
+    <div class="time" id="currentTime">--:--:--</div>
+  </div>
+
+  <!-- 主內容 -->
+  <div class="content">
+    <h1>你好，我是陳姿吟</h1>
+
+    <h2 id="about">基本介紹</h2>
+    <p>我的名字是陳姿吟，也可以叫我激激。</p>
+    <p>目前是東吳大學資料科學系的大學三年級學生。</p>
+
+    <h2 id="hobbies">我的興趣</h2>
+    <p>我喜歡打網球，也喜歡書法，享受在專注中找尋樂趣。</p>
+
+    <h2 id="personality">我的個性</h2>
+    <p>我是個內向、沉穩、細心又謹慎的人，做事情時習慣先思考、再行動。</p>
+
+    <h2>我喜歡的活動</h2>
+    <p>平常我最喜歡聽音樂、唱歌和閱讀，這些活動讓我感到放鬆與充實。</p>
+
+    <h2>我的座右銘</h2>
+    <p>「溫柔其實很不容易，那要走過很多傷。」這句話提醒我要善待自己，也理解他人。</p>
+
+    <h2 id="favorites">我的喜好</h2>
+    <p>我喜歡吃布丁，喜歡天藍色，也很喜歡吉娃娃這種可愛的小型犬。</p>
+
+    <h2 id="social">我的社群連結</h2>
+    <div class="social-links">
+      <a href="https://www.instagram.com/你的帳號" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/你的帳號" target="_blank">Facebook</a>
+      <a href="https://github.com/你的帳號" target="_blank">GitHub</a>
+    </div>
+  </div>
+
+  <!-- 回頂部按鈕 -->
+  <button onclick="topFunction()" id="topBtn" title="回到頂部">▲ 回頂部</button>
+
+  <!-- JavaScript：返回頂部 + 問候語與時間 -->
+  <script>
+    // 回到頂部功能
+    const topBtn = document.getElementById("topBtn");
+    window.onscroll = function () {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    };
+    function topFunction() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // 問候語與時間顯示
+    function updateTimeGreeting() {
+      const now = new Date();
+      const hours = now.getHours();
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+
+      let greeting = "";
+      if (hours < 12) {
+        greeting = "早安，祝你有美好的一天 ☀️";
+      } else if (hours < 18) {
+        greeting = "午安，繼續加油喔 ☕";
+      } else {
+        greeting = "晚安，記得休息 🌙";
+      }
+
+      document.getElementById("greetingText").innerText = greeting;
+      document.getElementById("currentTime").innerText =
+        `${hours.toString().padStart(2, '0')}:${minutes}:${seconds}`;
+    }
+
+    setInterval(updateTimeGreeting, 1000);
+    updateTimeGreeting(); // 初始顯示
+  </script>
+
+</body>
+</html>
+
+
+
+
